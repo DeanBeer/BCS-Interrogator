@@ -1,4 +1,4 @@
 BCS-Interrogator
 ================
 
-Libraries to talk to a EEC Brewery Control System
+Gem to talk to an EEC Brewery Control System
