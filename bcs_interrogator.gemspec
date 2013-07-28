@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = 'bcs-interrogator'
 
   s.add_dependency 'faraday', '~> 0.0'
+  s.add_dependency 'NRB_http_service', '~> 0.0'
 
   s.add_development_dependency 'guard-rspec', '~> 2.0'
   s.add_development_dependency 'rake', '~> 10.0'
