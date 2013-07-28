@@ -1,4 +1,4 @@
-require 'bcs-interrogator/version'
+require 'bcs_interrogator/version'
 
 module NRB
   module BCSInterrogator

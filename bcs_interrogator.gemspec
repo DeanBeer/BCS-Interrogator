@@ -1,5 +1,5 @@
 $:.push File.expand_path('../lib', __FILE__)
-require 'bcs-interrogator/version'
+require 'bcs_interrogator/version'
 
 Gem::Specification.new do |s|
   s.name          = 'bcs-interrogator'
