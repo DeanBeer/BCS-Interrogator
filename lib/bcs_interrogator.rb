@@ -1,7 +1,16 @@
 require 'bcs_interrogator/version'
+require 'NRB_http_service'
 
 module NRB
-  module BCSInterrogator
+  class BCSInterrogator
+
+    autoload :API, 'bcs_interrogator/api'
+
+    attr_reader :api
+
+    def initialize(args={})
+      @api = API.new args[:api_args]
+    end
 
 
   end

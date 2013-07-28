@@ -4,7 +4,7 @@ require 'bcs_interrogator/version'
 Gem::Specification.new do |s|
   s.name          = 'bcs-interrogator'
   s.summary       = 'A gem to intorrogate EEC Brewery Control Systems'
-  s.description   = ''
+  s.description   = 'Embedded Control Concepts Brewery Control System interrogator'
 
   s.homepage          = 'https://github.com/NewRepublicBrewing/BCS-Interrogator'
   s.rubyforge_project = 'bcs-interrogator'
@@ -23,7 +23,8 @@ Gem::Specification.new do |s|
   s.files         = [
                       'LICENSE',
                       'README.md',
-                      'lib/bcs-interrogator/version.rb'
+                      'lib/bcs_interrogator.rb',
+                      'lib/bcs_interrogator/version.rb'
                     ]
   s.test_files    = [ 
                       'spec/spec_helper.rb'
