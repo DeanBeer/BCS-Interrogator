@@ -24,10 +24,20 @@ Gem::Specification.new do |s|
                       'LICENSE',
                       'README.md',
                       'lib/bcs_interrogator.rb',
+                      'lib/bcs_interrogator/api.rb',
+                      'lib/bcs_interrogator/api/endpoint.rb',
+                      'lib/bcs_interrogator/api/response.rb',
+                      'lib/bcs_interrogator/api/sysname.rb',
+                      'lib/bcs_interrogator/api/ultemp.rb',
+                      'lib/bcs_interrogator/entity.rb',
                       'lib/bcs_interrogator/version.rb'
+
                     ]
   s.test_files    = [ 
-                      'spec/spec_helper.rb'
+                      'spec/spec_helper.rb',
+                      'spec/cases/api_spec.rb',
+                      'spec/cases/bcs_interrogator_spec.rb'
+
                     ]
   s.require_paths = ['lib']
 

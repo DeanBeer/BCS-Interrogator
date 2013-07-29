@@ -70,24 +70,39 @@ Bits 7:0 : Process[7:0] Pause'
         ENDPOINT = '/ultemp.dat'
 
         def inputs
-          0.upto(7).collect { |i| data[2].to_i & (2**i) > 0 }
+          bitmasked_data 0..7, 2
         end
 
 
         def outputs
-          0.upto(17).collect { |i| data[1].to_i & (2**i) > 0 }
+          bitmasked_data 0..17, 1
         end
 
 
         def temps
-          to_a[3..10].collect { |temp| temp.to_f / 10.0 }
+          data_by_ten(3..10)
         end
 
 
         def setpoints
-          to_a[11..18].collect { |temp| temp.to_f / 10.0 }
+          data_by_ten(11..18)
         end
 
+      private
+
+        def collect_data(range, &block)
+          data[range].collect &block
+        end
+
+
+        def bitmasked_data(range, data_pos)
+          collect_data(range) { |i| data[data_pos].to_i & (2**i) > 0 }
+        end
+
+
+        def data_by_ten(range)
+          collect_data(range) { |t| t.to_f / 10.0 }
+        end
 
       end
     end
