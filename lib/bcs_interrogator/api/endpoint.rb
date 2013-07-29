@@ -21,8 +21,7 @@ module NRB
           args[:verb] ||= :get
           args[:url] ||= endpoint
           @response = @api.api_call args
-          @data = {}
-          self.class.descriptions.each_with_index { |descr,i| @data[descr] = @response.body[i] }
+          @data = @response.body
           @response
         end
 
@@ -50,11 +49,11 @@ module NRB
         end
 
 
-        def keys; data.keys; end
+        def to_a; data; end
 
-        def to_a; data.values; end
-
-        def to_h; data; end
+        def to_h
+          self.class.descriptions.each_with_index { |descr,i| data[descr] = @response.body[i] }
+        end
 
       end
     end

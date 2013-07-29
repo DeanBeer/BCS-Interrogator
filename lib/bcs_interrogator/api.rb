@@ -3,8 +3,8 @@ module NRB
     class API
 
       autoload :Endpoint, 'bcs_interrogator/api/endpoint'
-      autoload :Sysname, 'bcs_interrogator/api/sysname'
       autoload :Response, 'bcs_interrogator/api/response'
+      autoload :Sysname, 'bcs_interrogator/api/sysname'
       autoload :Ultemp, 'bcs_interrogator/api/ultemp'
 
       API_VERSION = 'BCS 3.7.0'  # Use NRB::BCSInterrogator::API.api_version instead

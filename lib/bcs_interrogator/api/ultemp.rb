@@ -69,6 +69,26 @@ Bits 7:0 : Process[7:0] Pause'
 
         ENDPOINT = '/ultemp.dat'
 
+        def inputs
+          0.upto(7).collect { |i| data[2].to_i & (2**i) > 0 }
+        end
+
+
+        def outputs
+          0.upto(17).collect { |i| data[1].to_i & (2**i) > 0 }
+        end
+
+
+        def temps
+          to_a[3..10].collect { |temp| temp.to_f / 10.0 }
+        end
+
+
+        def setpoints
+          to_a[11..18].collect { |temp| temp.to_f / 10.0 }
+        end
+
+
       end
     end
   end
