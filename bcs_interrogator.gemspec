@@ -5,6 +5,7 @@ Gem::Specification.new do |s|
   s.name          = 'bcs-interrogator'
   s.summary       = 'A gem to intorrogate EEC Brewery Control Systems'
   s.description   = 'Embedded Control Concepts Brewery Control System interrogator'
+  s.license       = 'GPL-3'
 
   s.homepage          = 'https://github.com/NewRepublicBrewing/BCS-Interrogator'
   s.rubyforge_project = 'bcs-interrogator'
