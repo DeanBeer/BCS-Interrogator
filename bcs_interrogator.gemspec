@@ -1,5 +1,8 @@
-$:.push File.expand_path('../lib', __FILE__)
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'bcs_interrogator/version'
+# i = BCSInterrogator.new base_url: 'http://10.0.0.254'
 
 Gem::Specification.new do |s|
   s.name          = 'bcs-interrogator'
@@ -10,13 +13,11 @@ Gem::Specification.new do |s|
   s.homepage          = 'https://github.com/NewRepublicBrewing/BCS-Interrogator'
   s.rubyforge_project = 'bcs-interrogator'
 
-  s.add_dependency 'faraday', '~> 0.0'
-  s.add_dependency 'NRB_http_service', '~> 0.0'
+  s.add_dependency 'faraday-http-cache'
 
-  s.add_development_dependency 'guard-rspec', '~> 2.0'
-  s.add_development_dependency 'rake', '~> 10.0'
-  s.add_development_dependency 'rspec', '~> 2.0'
-  s.add_development_dependency 'rb-inotify', '~> 0.0' # Filesystem watcher for Guard on Linux
+  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec'
 
   s.authors       = ['Dean Brundage']
   s.email         = ['dean@newrepublicbrewing.com']
@@ -36,7 +37,7 @@ Gem::Specification.new do |s|
                     ]
   s.test_files    = [ 
                       'spec/spec_helper.rb',
-                      'spec/cases/api_spec.rb',
+                      'spec/cases/bcs_interrogator/api_spec.rb',
                       'spec/cases/bcs_interrogator_spec.rb'
 
                     ]
