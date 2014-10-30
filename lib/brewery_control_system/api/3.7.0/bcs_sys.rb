@@ -145,6 +145,7 @@ class NRB::BreweryControlSystem::API
 
 
     def parse
+raise "Stop using this"
       return if body_text.nil?
 body_array[0..55] + body_array[248..252].map { |i| i.to_f / 10.0 }
 #      body_array.each_with_index.inject({}) do |hash,(body,i)|

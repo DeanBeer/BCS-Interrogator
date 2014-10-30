@@ -235,6 +235,7 @@ class NRB::BreweryControlSystem::API
 
 
     def parse
+raise "Stop using this"
       return if body_text.nil?
       body_array.each_with_index.inject({}) do |hash,(body,i)|
         hash[descriptions[i]] = body_array[i]

@@ -10,7 +10,7 @@ module NRB
     attr_reader :base_url
 
     def api_version
-      @api_version ||= probe
+      @api_version ||= firmware_version
     end
 
 
@@ -21,7 +21,6 @@ module NRB
 
     def discrete_inputs
       # 8
-      api.discrete_inputs
     end
 
 
@@ -44,7 +43,7 @@ module NRB
       self.api_class = api_class
       @base_url = base_url; @base_url.freeze
       self.http_service_class = http_service_class
-      @api_version = api_version
+      self.api_version = api_version
     end
 
 
@@ -62,14 +61,6 @@ module NRB
 
     def outputs
       # 18
-      api.outputs
-    end
-
-
-    def probe
-      http_service do |b|
-        b.response :bcs_probe
-      end.get('/').body
     end
 
 
@@ -88,8 +79,9 @@ module NRB
 
 
     def temp_probes
-      []
+      api.temperature_probes
     end
+    alias_method :temperature_probes, :temp_probes
 
 
     def type
@@ -100,13 +92,14 @@ module NRB
 
     attr_accessor :api_class, :http_service_class
     attr_reader :base_url
-    attr_writer :api
+    attr_writer :api, :api_version
 
     def api
-      @api ||= api_class.new base_url: base_url, bcs: self
+      return @api unless @api.nil?
+      api_args = { base_url: base_url, bcs: self }
+      api_args[:api_version] = api_version unless @api_version.nil?
+      @api = api_class.new api_args
     end
 
   end
 end
-
-require 'brewery_control_system/api/probe'

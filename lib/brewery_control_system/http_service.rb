@@ -11,7 +11,7 @@ class NRB::BreweryControlSystem
       def default_adapter; @default_adapter ||= Faraday.default_adapter; end
 
 
-      def default_service(cache_store: nil, options: nil, url: nil)
+      def default_service(cache_store: nil, options: nil, url: nil, &block)
         Faraday.new url, options do |b|
           b.use :http_cache, store: cache_store
 #          b.response :raise_error

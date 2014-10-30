@@ -33,10 +33,11 @@ class NRB::BreweryControlSystem::API
   private
 
     attr_accessor :body_text
+    attr_reader :body_array
 
     def body_array
       return unless body_text
-      body_text.split(/,/)
+      @body_array ||= body_text.split(/,/)
     end
 
 
