@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'bcs_interrogator/version'
+require 'brewery_control_system/version'
 # i = BCSInterrogator.new base_url: 'http://10.0.0.254'
 
 Gem::Specification.new do |s|
