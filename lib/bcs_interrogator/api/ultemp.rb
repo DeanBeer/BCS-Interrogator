@@ -30,37 +30,37 @@ module NRB
                          'Current State - P0(31:24) P1(23:16) P2(15:8) P3(7:0)',
                          'Current State - P4(31:24) P5(23:16) P6(15:8) P7(7:0)',
                          'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
-                         'Process Timer 0 [P0:P7][T0:T3]',
+                         'Process Timer 1 [P0:P7][T0:T3]',
+                         'Process Timer 2 [P0:P7][T0:T3]',
+                         'Process Timer 3 [P0:P7][T0:T3]',
+                         'Process Timer 4 [P0:P7][T0:T3]',
+                         'Process Timer 5 [P0:P7][T0:T3]',
+                         'Process Timer 6 [P0:P7][T0:T3]',
+                         'Process Timer 7 [P0:P7][T0:T3]',
+                         'Process Timer 8 [P0:P7][T0:T3]',
+                         'Process Timer 9 [P0:P7][T0:T3]',
+                         'Process Timer 10 [P0:P7][T0:T3]',
+                         'Process Timer 11 [P0:P7][T0:T3]',
+                         'Process Timer 12 [P0:P7][T0:T3]',
+                         'Process Timer 13 [P0:P7][T0:T3]',
+                         'Process Timer 14 [P0:P7][T0:T3]',
+                         'Process Timer 15 [P0:P7][T0:T3]',
+                         'Process Timer 16 [P0:P7][T0:T3]',
+                         'Process Timer 17 [P0:P7][T0:T3]',
+                         'Process Timer 18 [P0:P7][T0:T3]',
+                         'Process Timer 19 [P0:P7][T0:T3]',
+                         'Process Timer 20 [P0:P7][T0:T3]',
+                         'Process Timer 21 [P0:P7][T0:T3]',
+                         'Process Timer 22 [P0:P7][T0:T3]',
+                         'Process Timer 23 [P0:P7][T0:T3]',
+                         'Process Timer 24 [P0:P7][T0:T3]',
+                         'Process Timer 25 [P0:P7][T0:T3]',
+                         'Process Timer 26 [P0:P7][T0:T3]',
+                         'Process Timer 27 [P0:P7][T0:T3]',
+                         'Process Timer 28 [P0:P7][T0:T3]',
+                         'Process Timer 29 [P0:P7][T0:T3]',
+                         'Process Timer 30 [P0:P7][T0:T3]',
+                         'Process Timer 31 [P0:P7][T0:T3]',
                          'Internal Registers (15:0)',
                          'Miscellaneous
 Bit 8: Alarm
@@ -69,12 +69,12 @@ Bits 7:0 : Process[7:0] Pause'
 
         ENDPOINT = '/ultemp.dat'
 
-        def inputs
+        def input_statuses
           bitmasked_data 0..7, 2
         end
 
 
-        def outputs
+        def output_statuses
           bitmasked_data 0..17, 1
         end
 
@@ -96,7 +96,9 @@ Bits 7:0 : Process[7:0] Pause'
 
 
         def bitmasked_data(range, data_pos)
-          collect_data(range) { |i| data[data_pos].to_i & (2**i) > 0 }
+          raise "data_pos may not be negative" if data_pos < 0
+          masked_data = data[data_pos].to_i
+          range.collect { |i| masked_data & (2**i) > 0 }
         end
 
 
