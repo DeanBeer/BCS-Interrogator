@@ -38,6 +38,7 @@ class NRB::BreweryControlSystem::API
 
 
     def decode_current_state(int)
+      # http://forum.embeddedcc.com/viewtopic.php?f=9&t=484&p=2513
       ( "%08x" % int ).scan(/[0-9a-f\.]{2}/).reverse.collect { |hex| hex == ".." || hex == "ff" ? nil : hex.to_i(16) }
     end
 
