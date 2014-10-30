@@ -3,7 +3,6 @@ class NRB::BreweryControlSystem
 
     autoload :Device,           'brewery_control_system/api/device'
     autoload :ServerVersion,    'brewery_control_system/api/server_version'
-    autoload :TemperatureProbe, 'brewery_control_system/api/temperature_probe'
     autoload :VersionCheck,     'brewery_control_system/api/version_check'
 
     # Device

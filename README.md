@@ -12,5 +12,3 @@ Requirements
 ============
 
 Ruby 1.9
-[NRB HTTP Service gem](https://github.com/NewRepublicBrewing/http-service)
-

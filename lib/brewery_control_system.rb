@@ -2,10 +2,11 @@ module NRB
   class BreweryControlSystem
     require 'brewery_control_system/version'
 
-    autoload :API,         'brewery_control_system/api'
-    autoload :HTTPService, 'brewery_control_system/http_service'
-    autoload :Input,       'brewery_control_system/input'
-    autoload :Middleware,  'brewery_control_system/middleware'
+    autoload :API,              'brewery_control_system/api'
+    autoload :HTTPService,      'brewery_control_system/http_service'
+    autoload :Input,            'brewery_control_system/input'
+    autoload :Middleware,       'brewery_control_system/middleware'
+    autoload :TemperatureProbe, 'brewery_control_system/temperature_probe'
 
     attr_reader :base_url
 
