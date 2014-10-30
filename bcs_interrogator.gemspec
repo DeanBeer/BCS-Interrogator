@@ -25,15 +25,28 @@ Gem::Specification.new do |s|
   s.files         = [
                       'LICENSE',
                       'README.md',
-                      'lib/bcs_interrogator.rb',
-                      'lib/bcs_interrogator/api.rb',
-                      'lib/bcs_interrogator/api/endpoint.rb',
-                      'lib/bcs_interrogator/api/response.rb',
-                      'lib/bcs_interrogator/api/sysname.rb',
-                      'lib/bcs_interrogator/api/ultemp.rb',
-                      'lib/bcs_interrogator/entity.rb',
-                      'lib/bcs_interrogator/version.rb'
-
+                      'lib/brewery_control_system.rb',
+                      'lib/brewery_control_system/api.rb',
+                      'lib/brewery_control_system/api/3.7.0/bcs_sys.rb',
+                      'lib/brewery_control_system/api/3.7.0/device_endpoint.rb',
+                      'lib/brewery_control_system/api/3.7.0/endpoint.rb',
+                      'lib/brewery_control_system/api/3.7.0/setpoints.rb',
+                      'lib/brewery_control_system/api/3.7.0/sysname.rb',
+                      'lib/brewery_control_system/api/3.7.0/temperature_probe_names_endpoint.rb',
+                      'lib/brewery_control_system/api/3.7.0/temperature_probes_endpoint.rb',
+                      'lib/brewery_control_system/api/3.7.0/temps.rb',
+                      'lib/brewery_control_system/api/3.7.0/ultemp.rb',
+                      'lib/brewery_control_system/api/device.rb',
+                      'lib/brewery_control_system/api/server_version.rb',
+                      'lib/brewery_control_system/api/version_check.rb',
+                      'lib/brewery_control_system/http_service.rb',
+                      'lib/brewery_control_system/http_service/user_agent.rb',
+                      'lib/brewery_control_system/input.rb',
+                      'lib/brewery_control_system/middleware.rb',
+                      'lib/brewery_control_system/middleware/registration.rb',
+                      'lib/brewery_control_system/output.rb',
+                      'lib/brewery_control_system/temperature_probe.rb',
+                      'lib/brewery_control_system/version.rb'
                     ]
   s.test_files    = [ 
                       'spec/spec_helper.rb',
