@@ -1,4 +1,6 @@
-class NRB::BreweryControlSystem
-  VERSION = '0.0.6'.freeze
-  def self.version; VERSION; end
+module NRB
+  class BreweryControlSystem
+    VERSION = '0.0.6'.freeze
+    def self.version; VERSION; end
+  end
 end

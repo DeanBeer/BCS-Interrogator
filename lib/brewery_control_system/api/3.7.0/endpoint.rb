@@ -6,7 +6,7 @@ class NRB::BreweryControlSystem::API
     class << self
 
       def descriptions;
-        const_defined?(:DESCRIPTIONS) ? const_get(:DESCRIPTIONS) : []
+        self.const_defined?(:DESCRIPTIONS) ? self.const_get(:DESCRIPTIONS) : []
       end
 
 

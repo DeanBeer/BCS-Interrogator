@@ -2,7 +2,6 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'brewery_control_system/version'
-# i = BCSInterrogator.new base_url: 'http://10.0.0.254'
 
 Gem::Specification.new do |s|
   s.name          = 'bcs-interrogator'
@@ -57,5 +56,5 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.platform      = Gem::Platform::RUBY
-  s.version       = NRB::BCSInterrogator.version
+  s.version       = NRB::BreweryControlSystem.version
 end
