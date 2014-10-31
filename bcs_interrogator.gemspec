@@ -47,12 +47,11 @@ Gem::Specification.new do |s|
                       'lib/brewery_control_system/temperature_probe.rb',
                       'lib/brewery_control_system/version.rb'
                     ]
+
   s.test_files    = [ 
                       'spec/spec_helper.rb',
-                      'spec/cases/bcs_interrogator/api_spec.rb',
-                      'spec/cases/bcs_interrogator_spec.rb'
-
                     ]
+
   s.require_paths = ['lib']
 
   s.platform      = Gem::Platform::RUBY
