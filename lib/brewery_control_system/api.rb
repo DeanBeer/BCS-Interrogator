@@ -1,7 +1,6 @@
 class NRB::BreweryControlSystem
   class API
 
-    autoload :Device,           'brewery_control_system/api/device'
     autoload :ServerVersion,    'brewery_control_system/api/server_version'
     autoload :VersionCheck,     'brewery_control_system/api/version_check'
 
@@ -15,10 +14,11 @@ class NRB::BreweryControlSystem
     # 4.x
     #   /device
     def device
-      @device_response ||= http_service do |b|
-                             b.response DeviceEndpoint
-                           end.get(DeviceEndpoint.endpoint).body
-      Device.new *@device_response
+      return @device unless @device.nil?
+      device_response = http_service do |b|
+                          b.response DeviceEndpoint
+                        end.get(DeviceEndpoint.endpoint).body
+      @device = Device.new *device_response
     end
 
 

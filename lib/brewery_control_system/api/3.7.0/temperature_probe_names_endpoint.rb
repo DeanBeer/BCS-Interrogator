@@ -10,7 +10,8 @@ class NRB::BreweryControlSystem::API
   private
 
     def body_array
-      super.map { |val| val.strip[/.+/m] }
+      array = super || []
+      array.map { |val| val.strip[/.+/m] }
     end
 
 

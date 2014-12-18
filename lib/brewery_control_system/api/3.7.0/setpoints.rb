@@ -7,7 +7,6 @@ class NRB::BreweryControlSystem::API
   private
 
     def parse
-      return if body_array.nil?
       setpoints
     end
 

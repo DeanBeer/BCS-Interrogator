@@ -1,15 +1,6 @@
 module NRB; class BreweryControlSystem
   class HTTPService::UserAgent
 
-    NAME = 'BCS Interrogator'.freeze
-    URL = 'https://github.com/NewRepublicBrewing/BCS-Interrogator'.freeze
-
-
-    def agent
-      @agent ||= "#{name} #{version} (#{url})".freeze
-    end
-
-
     def call(env)
       env[:request_headers]["User-Agent"] = agent
       @app.call(env).on_complete { }
@@ -18,6 +9,15 @@ module NRB; class BreweryControlSystem
 
     def initialize(app)
       @app = app
+    end
+
+private
+
+    NAME = 'BCS Interrogator'.freeze
+    URL = 'https://github.com/NewRepublicBrewing/BCS-Interrogator'.freeze
+
+    def agent
+      @agent ||= "#{name} #{version} (#{url})".freeze
     end
 
 

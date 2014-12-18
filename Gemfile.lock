@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bcs-interrogator (0.0.2)
+    bcs-interrogator (0.0.6)
       faraday-http-cache
 
 GEM
@@ -57,6 +57,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcs-interrogator!
+  guard
   guard-rspec
   rake
   rspec

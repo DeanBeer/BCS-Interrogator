@@ -42,6 +42,7 @@ class NRB::BreweryControlSystem::API
 
 
     def parse
+      raise 'parse() not implemented in parent class'
     end
 
   end

@@ -3,12 +3,12 @@ module NRB
     require 'brewery_control_system/version'
 
     autoload :API,              'brewery_control_system/api'
+    autoload :Device,           'brewery_control_system/models/device'
     autoload :HTTPService,      'brewery_control_system/http_service'
-    autoload :Input,            'brewery_control_system/input'
+    autoload :Input,            'brewery_control_system/models/input'
     autoload :Middleware,       'brewery_control_system/middleware'
-    autoload :TemperatureProbe, 'brewery_control_system/temperature_probe'
-
-    attr_reader :base_url
+    autoload :Output,           'brewery_control_system/models/output'
+    autoload :TemperatureProbe, 'brewery_control_system/models/temperature_probe'
 
     def api_version
       @api_version ||= firmware_version
@@ -74,9 +74,9 @@ module NRB
     end
 
 
-    def setpoints
-      api.setpoints
-    end
+#    def setpoints
+#      api.setpoints
+#    end
 
 
     def temp_probes

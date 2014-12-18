@@ -23,7 +23,8 @@ class NRB::BreweryControlSystem::API
 
 
     def body_array
-      super.map { |i| i.to_i }
+      return @body_array unless @body_array.nil?
+      @body_array = (super || []).map { |i| i.to_i }
     end
 
 
@@ -33,6 +34,7 @@ class NRB::BreweryControlSystem::API
 
 
     def collect_body_array(range, &block)
+      return body_array if body_array.empty?
       body_array[range].collect &block
     end
 
@@ -59,7 +61,7 @@ class NRB::BreweryControlSystem::API
 
 
     def parse
-      return if body_array.nil?
+      return if body_array.empty?
       [ *running_processes,
         *output_statuses,
         *input_statuses,
