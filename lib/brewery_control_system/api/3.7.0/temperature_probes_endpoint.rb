@@ -24,11 +24,6 @@ class NRB::BreweryControlSystem::API
     end
 
 
-    def http_service &block
-      api.http_service &block
-    end
-
-
     def initialize(api: nil)
       raise ArgumentError.new("Need an api") if api.nil?
       self.api = api
@@ -37,6 +32,11 @@ class NRB::BreweryControlSystem::API
   private
 
     attr_accessor :api
+
+    def http_service &block
+      api.http_service &block
+    end
+
 
   end
 end

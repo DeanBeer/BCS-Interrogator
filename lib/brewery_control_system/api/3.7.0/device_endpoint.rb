@@ -16,9 +16,9 @@ class NRB::BreweryControlSystem::API
 
 
     def parse
-      return if body_text.nil?
+      return {} if body_text.nil?
       (device, version) = body_array[0].split(/\s+/)
-      [ body_array[1], device, version, nil ]
+      { "name" => body_array[1], "type" => device, "version" => version }
     end
 
   end

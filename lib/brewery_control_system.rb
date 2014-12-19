@@ -35,12 +35,12 @@ module NRB
     end
 
 
-    def http_service &block
-      http_service_class.default_service url: base_url, &block
+    def http_service options: nil, &block
+      http_service_class.default_service options: options, url: base_url, &block
     end
 
 
-    def initialize(api_class: API, base_url: nil, http_service_class: HTTPService, api_version: nil)
+    def initialize(api_class: API, base_url: nil, http_service_class: HTTPService, api_version: nil, http_debug: false)
       self.api_class = api_class
       @base_url = base_url; @base_url.freeze
       self.http_service_class = http_service_class
@@ -62,6 +62,11 @@ module NRB
 
     def outputs
       # 18
+    end
+
+
+    def poll
+      api.poll
     end
 
 

@@ -15,10 +15,13 @@ class NRB::BreweryControlSystem
     #   /device
     def device
       return @device unless @device.nil?
-      device_response = http_service do |b|
-                          b.response DeviceEndpoint
-                        end.get(DeviceEndpoint.endpoint).body
-      @device = Device.new *device_response
+      response = http_service do |b|
+                   b.response DeviceEndpoint
+                 end.get(DeviceEndpoint.endpoint).body
+      @device = Device.new response['name'],
+                           response['type'],
+                           response['version'],
+                           response['build']
     end
 
 
@@ -39,7 +42,13 @@ class NRB::BreweryControlSystem
     #   enabled       boolean
     #   coefficients  array
     def temperature_probes
-      TemperatureProbesEndpoint.fetch api: self
+#      if api_version == '4.0.0'
+#        response = http_service do |b|
+#          b.response TemperatureProbesEndpoint
+#        end.get(TemperatureProbesEndpoint.endpoint).body
+#      else
+        TemperatureProbesEndpoint.fetch api: self
+#      end
     end
 
     # Digital Inputs
@@ -70,6 +79,13 @@ class NRB::BreweryControlSystem
       require_endpoints
     end
 
+
+    def poll
+      http_service do |b|
+        b.response PollEndpoint
+      end.get(PollEndpoint.endpoint).body
+    end
+
   private
 
     attr_accessor :base_url, :bcs, :api_version
@@ -77,6 +93,7 @@ class NRB::BreweryControlSystem
     def require_endpoints
       %w( endpoint
           device_endpoint
+          poll_endpoint
           setpoints
           temps
           temperature_probes_endpoint

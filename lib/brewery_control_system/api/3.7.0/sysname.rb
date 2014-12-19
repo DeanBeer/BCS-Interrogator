@@ -217,8 +217,6 @@ class NRB::BreweryControlSystem::API
                      'Reserved 34'
                    ].freeze
 
-    def descriptions; DESCRIPTIONS; end
-
 #    def input_names; data[43..46] + data[89..92]; end
 #    def output_names; data[37..42] + data[93..104]; end
 #    def temp_probe_names; data[63..66] + data[85..88]; end
