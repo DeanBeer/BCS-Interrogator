@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe NRB::BreweryControlSystem::Input do
 
   it 'responds to :id' do

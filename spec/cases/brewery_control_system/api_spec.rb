@@ -1,6 +1,4 @@
 require 'faraday'
-require 'spec_helper'
-
 describe NRB::BreweryControlSystem::API do
 
   let(:base_url) { 'http://localhost/' }

@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 module NRB; module Fake
   class SomeClass
     include NRB::BreweryControlSystem::API::ServerVersion

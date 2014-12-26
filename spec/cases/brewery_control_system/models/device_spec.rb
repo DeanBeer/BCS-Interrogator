@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe NRB::BreweryControlSystem::Device do
 
   it 'responds to :build' do

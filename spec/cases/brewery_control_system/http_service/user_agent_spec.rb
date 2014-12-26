@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe NRB::BreweryControlSystem::HTTPService::UserAgent do
 
   let(:app) { :llama }

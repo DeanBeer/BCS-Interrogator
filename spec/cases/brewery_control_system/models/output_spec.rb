@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe NRB::BreweryControlSystem::Output do
 
   it 'responds to :enabled' do

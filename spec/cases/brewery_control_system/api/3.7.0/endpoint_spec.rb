@@ -1,5 +1,4 @@
 require 'faraday'
-require 'spec_helper'
 require 'brewery_control_system/api/3.7.0/endpoint'
 
 describe NRB::BreweryControlSystem::API::Endpoint do

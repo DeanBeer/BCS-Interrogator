@@ -1,7 +1,5 @@
 require 'faraday'
-require 'spec_helper'
 require 'support/null_app'
-
 describe NRB::BreweryControlSystem::API::VersionCheck do
 
   let(:api_version) { 'spec' }

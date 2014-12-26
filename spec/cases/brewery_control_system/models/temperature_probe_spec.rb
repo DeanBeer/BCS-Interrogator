@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe NRB::BreweryControlSystem::TemperatureProbe do
 
   it 'responds to :coefficients' do
