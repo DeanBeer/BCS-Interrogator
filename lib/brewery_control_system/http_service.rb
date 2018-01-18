@@ -12,7 +12,7 @@ class NRB::BreweryControlSystem
 
 
       def default_service(cache_store: nil, options: nil, url: nil, &block)
-        debug = options.delete(:debug)
+        debug = options && options.delete(:debug)
         Faraday.new url, options do |b|
           b.use(:logger) if debug
 #          b.use :http_cache, store: cache_store

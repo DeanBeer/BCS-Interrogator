@@ -37,6 +37,5 @@ class NRB::BreweryControlSystem::API
       api.http_service &block
     end
 
-
   end
 end
